@@ -1,3 +1,4 @@
 class Apartement < ApplicationRecord
     belongs_to :user
+    validates :street presence: true
 end
