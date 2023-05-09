@@ -84,8 +84,8 @@ RSpec.describe Apartement, type: :model do
     expect(apartement.error[:square_footage]).to include "cant be blank"
 end
 
-it "should have a valid price" do
-  apartement = user.apartement.create(
+  it "should have a valid price" do
+    apartement = user.apartement.create(
     street: "Clairemont"
     unit: "122",
     city: "Boulder",
@@ -98,10 +98,10 @@ it "should have a valid price" do
     description: "Blah blah blah"
     )
 
-  expect(apartement.error[:price]).to include "cant be blank"
-end
-it "should have a valid bedrooms" do
-  apartement = user.apartement.create(
+    expect(apartement.error[:price]).to include "cant be blank"
+  end
+  it "should have a valid bedrooms" do
+    apartement = user.apartement.create(
     street: "Clairemont"
     unit: "122",
     city: "Boulder",
@@ -114,11 +114,70 @@ it "should have a valid bedrooms" do
     description: "Blah blah blah"
     )
 
-  expect(apartement.error[:bedrooms]).to include "cant be blank"
-end
+    expect(apartement.error[:bedroom]).to include "cant be blank"
+  end
+  it "should have a valid bathrooms" do
+    apartement = user.apartement.create(
+    street: "Clairemont"
+    unit: "122",
+    city: "Boulder",
+    state: "CO"
+    square_footage: "1200",
+    price: "1800",
+    bedrooms:3,
+    pets: "yes",
+    image: "https://images1.apartments.com/i2/ioTJb1UnNirlbmJ6799OCHUvEJl38m39e8nmNidka1k/117/mysa-at-the-crossing-boulder-co-building-photo.jpg",
+    description: "Blah blah blah"
+    )
 
+    expect(apartement.error[:bathrooms]).to include "cant be blank"
+  end
+  it "should have a valid pets" do
+    apartement = user.apartement.create(
+    street: "Clairemont"
+    unit: "122",
+    city: "Boulder",
+    state: "CO"
+    square_footage: "1200",
+    price: "1800",
+    bedrooms: 3,
+    bathrooms: 2.5,
+    image: "https://images1.apartments.com/i2/ioTJb1UnNirlbmJ6799OCHUvEJl38m39e8nmNidka1k/117/mysa-at-the-crossing-boulder-co-building-photo.jpg",
+    description: "Blah blah blah"
+    )
 
+    expect(apartement.error[:pets]).to include "cant be blank"
+  end
+  it "should have a valid images" do
+    apartement = user.apartement.create(
+    street: "Clairemont"
+    unit: "122",
+    city: "Boulder",
+    state: "CO"
+    square_footage: "1200",
+    price: "1800",
+    bedrooms: 3,
+    bathrooms: 2.5,
+    pets: "yes",
+    description: "Blah blah blah"
+    )
 
-    
+    expect(apartement.error[:images]).to include "cant be blank"
+  end
+  it "should have a valid description" do
+    apartement = user.apartement.create(
+    street: "Clairemont"
+    unit: "122",
+    city: "Boulder",
+    state: "CO"
+    square_footage: "1200",
+    price: "1800",
+    bedrooms: 3,
+    bathrooms: 2.5,
+    pets: "yes",
+    image: "https://images1.apartments.com/i2/ioTJb1UnNirlbmJ6799OCHUvEJl38m39e8nmNidka1k/117/mysa-at-the-crossing-boulder-co-building-photo.jpg",
+    )
 
+    expect(apartement.error[:description]).to include "cant be blank"
+  end
 end
