@@ -13,7 +13,7 @@ class ApartementsController < ApplicationController
     if apartement.valid?
       render json: apartement
     else
-      render json: apartement.errors, status 422
+      render json: apartement.errors, status: 422
     end
   end
 
@@ -23,7 +23,7 @@ class ApartementsController < ApplicationController
     if apartement.valid?
       render json: apartement
     else
-      render json: apartement.errors, status 422
+      render json: apartement.errors, status: 422
     end
    
   end

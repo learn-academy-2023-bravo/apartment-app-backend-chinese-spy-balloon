@@ -2,7 +2,7 @@
 user1 = User.where(email: "test1@example.com").first_or_create(password: "password", password_confirmation: "password")
 user2 = User.where(email: "test2@example.com").first_or_create(password: "password", password_confirmation: "password")
 
-apartments1 = [
+apartements1 = [
  {
 street: "Rimrock",
 unit: "122",
@@ -44,7 +44,7 @@ description: "Blah blih blah"
  },
 ]
 
-apartments2 = [
+apartements2 = [
 {
 street: "Rimrock",
 unit: "122",
@@ -60,12 +60,12 @@ description: "Blah blah blah"
 }
 ]
 
-apartments1.each do |apartement|
+apartements1.each do |apartement|
     user1.apartements.create(apartement)
     puts "creating: #{apartement}"
 end
 
-apartments2.each do |apartement|
+apartements2.each do |apartement|
     user2.apartements.create(apartement)
     puts "creating: #{apartement}"
 end
