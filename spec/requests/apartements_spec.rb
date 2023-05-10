@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Apartements", type: :request do
   let (:user) {User.create(email: 'testing@example.com', password: 'password1', password_confirmation: 'password1')}
   describe 'GET /index' do
-    it 'returns a list of apartements' do
+    it 'returns a list of all apartements' do
       apartement= user.apartements.create(
       street: "Rimrock",
       unit: "122",
@@ -18,16 +18,16 @@ RSpec.describe "Apartements", type: :request do
       description: "Blah blah blah")
 
       get '/apartements'
-      apartement = JSON.parse(response.body)
+      apartements = JSON.parse(response.body)
       expect(response).to have_http_status(200)
-      expect(apartement.length).to eq 1
+      expect(apartements.length).to eq 1
     end
   end
   describe 'POST /create' do
     it "creates an apartement" do
       apartement_params = {
       apartement: {
-        user_id: user1.id,
+        user_id: user.id,
         street: "Rimrock",
         unit: "122",
         city: "Boulder",

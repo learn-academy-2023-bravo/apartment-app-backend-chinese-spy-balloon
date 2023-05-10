@@ -9,7 +9,7 @@ class ApartementsController < ApplicationController
 
  
   def create
-    apartement = Apartement.new(apartement_params)
+    apartement = Apartement.create(apartement_params)
     if apartement.valid?
       render json: apartement
     else
